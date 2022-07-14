@@ -166,8 +166,8 @@ def write_features(pDataName, pNetType, pNetFit, train_features, train_labels, t
 if __name__ == "__main__":
 
     #inputs
-    pDataName               = 'CUB-200'             
-    pNetType                = 'resnet18'            
+    pDataName               = 'CIFAR-100'             
+    pNetType                = 'resnet34'            
     pNetFit                 = 'imagenet'    
     
     #data from source
