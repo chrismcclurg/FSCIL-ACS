@@ -1,0 +1,7 @@
+In order to use the feature extractor, you must first download data.
+
+The CIFAR-100 data files can be downloaded from 
+https://www.cs.toronto.edu/~kriz/cifar.html
+
+The GROCERY STORE data files can be downloaded from
+https://github.com/marcusklasson/GroceryStoreDataset
