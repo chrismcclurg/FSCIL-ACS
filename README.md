@@ -6,7 +6,12 @@
 
 ![An overview of the model](https://github.com/chrismcclurg/minecraft-incremental-learning/blob/main/compModel.png?raw=true)
 
-**Dependencies.**  The following 
+**Usage.**  To run this code, you should use the following steps:
+1. Download the Malmo environment. 
+2. Download the image data and put it into ./utils/data
+3. Run the ./utils/get_features.py to extract features to ./utils/features
+4. Open a Minecraft client and run quick-test.py. *Here, you can visualize the potential field as the agent goes through the environement.*
+5. Open many Minecraft clients and run main.py (with intended parameters) to run the full test. *Here, the results are written to ./results/[date]/*
 
 
 
