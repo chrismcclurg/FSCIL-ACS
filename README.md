@@ -13,7 +13,7 @@
 4. Open a Minecraft client and run quick-test.py. *Here, you can visualize the potential field as the agent goes through the environement.*
 5. Open many Minecraft clients and run main.py (with intended parameters) to run the full test. *Here, the results are written to ./results/[date]/*
 
-**Project Malmo.** To download and resolve any issues with the Malmo environment, please refer to https://github.com/microsoft/malmo.
+**Project Malmo.** To download and/or resolve any issues with the Malmo environment, please refer to https://github.com/microsoft/malmo.
 
 **Datasets.** The datasets can be found in the following locations:
 - CIFAR-100: https://www.cs.toronto.edu/~kriz/cifar.html
