@@ -15,8 +15,8 @@
 
 **Project Malmo.** To download and resolve any issues with the Malmo environment, please refer to https://github.com/microsoft/malmo.
 **Datasets** The datasets can be found in the following locations:
--CIFAR-100: 
--GROCERY STORE: 
+- CIFAR-100: 
+- GROCERY STORE: 
 
 
 
