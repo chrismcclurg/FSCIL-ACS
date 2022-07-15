@@ -2,7 +2,7 @@
 
 **Overview.** This code is for implementing CBCL with active class selection in the Minecraft (Malmo) environment. 
 
-**Scenerio.** The robot passes through the Minecraft environment with partial observability. When an item is within range, it is identified. A potential field is used  to navigate the robot from one desirable item to another. When the agent gets within close proximity to an item, the agent can 'collect' exemplars of this item. In reality, these exemplars are mapped to a real-world image dataset (CIFAR-100, GROCERY STORE, CUB-200), so the agent is collecting feature vectors of a certain class. The robot updates its understanding of the world (cluster space). The cluster space is used to inform the most desirable classes.
+**Scenerio.** The robot passes through the Minecraft environment with partial observability. When a Minecraft item is within range, the item is identified. A potential field, created from the sum of unique observations, used to navigate the robot from one desirable item to another. When the agent gets within close proximity to an item, the agent can 'collect' exemplars of this item. In reality, these exemplars are mapped to a real-world image dataset (CIFAR-100, GROCERY STORE, CUB-200), so the agent is collecting feature vectors of a certain class. The robot updates its understanding of the world (cluster space). The cluster space is used to inform the most desirable classes.
 
 ![An overview of the model](https://github.com/chrismcclurg/minecraft-incremental-learning/blob/main/compModel.png?raw=true)
 
