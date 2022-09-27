@@ -390,29 +390,19 @@ if __name__ == "__main__":
     #prepare pack for test
     i           = 0
     testPack    = []
-    status = pd.read_excel('./results/collect_resnet34_malmotest.xlsx')
-    status = list(status.status)
+
     for pMod in [1]: 
         for pSeed in range(10):
             for pDataName in ['grocery', 'cifar']:
-            # for pDataName in ['cifar']:
-                for pLearner in ['CBCLPR', 'CBCLWVS', 'CBCLSVM']:
-                    for pBias in ['classWt', 'uniform', 'clusterWt']:
-                        if status[i] != 'complete': testPack.append([i, pMod, pSeed, pDataName, pLearner, pBias])   
+                for pLearner in ['CBCLPR', 'CBCLSVM']:
+                    for pBias in ['classWt', 'uniform', 'clusterWt', 'clusterStdLow', 'clusterStdHigh']:
+                        testPack.append([i, pMod, pSeed, pDataName, pLearner, pBias])   
                         i+=1
                 for pLearner in ['SVM']:
                     for pBias in ['uniform', 'redistrict']: 
-                        if status[i] != 'complete': testPack.append([i, pMod, pSeed, pDataName, pLearner, pBias])   
-                        i+=1
-    for pMod in [1]: 
-        for pSeed in range(10):
-            for pDataName in ['grocery', 'cifar']:
-                for pLearner in ['CBCLPR', 'CBCLWVS', 'CBCLSVM']:
-                    for pBias in ['clusterStdLow', 'clusterStdHigh']:
-                        if status[i] != 'complete': testPack.append([i, pMod, pSeed, pDataName, pLearner, pBias])   
-                        i+=1            
+                        testPack.append([i, pMod, pSeed, pDataName, pLearner, pBias])   
+                        i+=1 
                     
-    
     totalResult = [[] for j in range(i)]
 
     #multi-processing params
