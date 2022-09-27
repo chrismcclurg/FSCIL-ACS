@@ -114,6 +114,59 @@ def CBCL_SVM(pack):
     
     return rAcc, rAccClass
 
+
+def CBCL_PR(pack):
+    
+    xTestTot    = pack[0]
+    yTestTot    = pack[1]
+    centClass   = pack[2]
+    nClassTotal = pack[4]
+    covaClass   = pack[7]
+    centWtClass = pack[8]
+    
+    # generate pseduo exemplars from the centroids
+    xTrain = []
+    yTrain = []
+    nPsuedoPerClass = 40
+    
+    for iClass in range(nClassTotal):
+        ones_count = centWtClass[iClass].count(1)
+        req_samples = nPsuedoPerClass - ones_count
+        if len(centWtClass[iClass])-ones_count>0:
+            how_many_per_centroid = round(req_samples/(len(centWtClass[iClass])-ones_count))
+        for jCent in range(len(centWtClass[iClass])):
+            if centWtClass[iClass][jCent]>1:
+                temp = list(np.random.multivariate_normal(centClass[iClass][jCent],covaClass[iClass][jCent],how_many_per_centroid))
+                xTrain.extend(temp)
+                yTrain.extend([iClass for x in range(how_many_per_centroid)])
+            else:
+                xTrain.append(centClass[iClass][jCent])
+                yTrain.append(iClass)
+    
+
+    model = SVC(kernel = 'linear')
+    nCorrClass  = [0 for x in range(nClassTotal)]
+    nActClass   = [0 for x in range(nClassTotal)]
+    rAccClass   = [0 for x in range(nClassTotal)]
+   
+    model.fit(xTrain, yTrain)
+    yPred = model.predict(xTestTot)
+    rAcc = accuracy_score(yPred, yTestTot)
+    rAcc = np.round(rAcc,3) 
+    
+    for i in range(len(yTestTot)):
+        iClass = yTestTot[i] 
+        predVal = yPred[i]
+        nActClass[iClass] +=1
+        if predVal == iClass: nCorrClass[iClass] +=1
+    
+    for iClass in range(nClassTotal):
+            if nActClass[iClass] != 0:   
+                rAccClass[iClass] = np.round(np.divide(nCorrClass[iClass], nActClass[iClass]), 3)
+    
+    return rAcc, rAccClass
+
+
 def update_centroids(pack):
     xTrainCurr          = pack[0]
     yTrainCurr          = pack[1]
@@ -121,12 +174,16 @@ def update_centroids(pack):
     centWtClass         = pack[3]
     pDistLim            = pack[4]
     pDistMetric         = pack[5]
+    covaClass           = pack[6]
+    centStdClass        = pack[7]
 
     for i in range(len(yTrainCurr)):
         iClass          = yTrainCurr[i]
         tempXTrain      = xTrainCurr[i].copy()
         tempCentroids   = centClass[iClass].copy()
         tempCentWts     = centWtClass[iClass].copy()
+        tempCovas       = covaClass[iClass].copy()
+        tempStds        = centStdClass[iClass].copy()
         tempDist        = []
         tempIxCent      = []
         
@@ -135,31 +192,56 @@ def update_centroids(pack):
             if d < pDistLim:
                 tempDist.append(d)
                 tempIxCent.append(j)
-        if len(tempDist)==0:
+        
+        if len(tempDist)==0:        
+            #create new cluster
             tempCentroids.append(tempXTrain)
             tempCentWts.append(1)
+            tempCovas.append(np.identity(len(tempXTrain)))
+            tempStds.append(np.zeros(512,))
+            # tempStds.append(0.0)
 
-        else:
+        else:                       
+            #identify closest cluster
             ixMinDist = np.argmin(tempDist)
             jx = tempIxCent[ixMinDist]
+            
+            #online covariance update
+            for_cov = list(np.random.multivariate_normal(tempCentroids[jx],tempCovas[jx],tempCentWts[jx]))
+            for_cov.append(tempXTrain)
+            tempCovas[jx] = np.cov(np.array(for_cov).T)
+            
+            #online mean update
+            m0 = tempCentroids[jx].copy()
             tempCentroids[jx] = np.add(np.multiply(tempCentWts[jx],tempCentroids[jx]),tempXTrain)
             tempCentWts[jx]+=1
             tempCentroids[jx] = np.divide(tempCentroids[jx],(tempCentWts[jx]))
+            
+            #online std update (this is really variance)
+            s0 = tempStds[jx]
+            xk = tempXTrain.copy()
+            k = tempCentWts[jx] 
+            mk = m0 + (xk - m0)/k            
+            sk = s0 + (xk - m0)*(xk - mk)
+            vk = sk / k
+            tempStds[jx] = vk
         
         centClass[iClass]   = tempCentroids
         centWtClass[iClass] = tempCentWts
+        covaClass[iClass]    = tempCovas
+        centStdClass[iClass] = tempStds
         
-    return [centClass, centWtClass]
+    return [centClass, centWtClass, covaClass, centStdClass]
 
 
-def aff_simple(pBiasType, centWtClass, rAccClass, rAccClass0, pMod):
+def aff_simple(pBiasType, centWtClass, centStdClass, rAccClass, rAccClass0, pMod):
     
     nClassTotal = len(centWtClass)
     working     = [0 for x in range(nClassTotal)]
     pTopBot     = int(np.round(nClassTotal/4))
     
     #random
-    if pBiasType == 'random':
+    if pBiasType == 'uniform':
         working = [random.randint(0,100) for x in range(nClassTotal)]
     
     #lowest accuracy
@@ -178,24 +260,35 @@ def aff_simple(pBiasType, centWtClass, rAccClass, rAccClass0, pMod):
         else: 
             working = [random.randint(0,100) for x in range(nClassTotal)]
 
-    
     #lowest cluster weight
     elif pBiasType == 'clusterWt':
         clusterWt = [np.mean(x) if len(x) > 0 else 0 for x in centWtClass]
         clusterFix = np.min([x for x in clusterWt if x>0])
         working = [1/x if x!=0 else 1/clusterFix for x in clusterWt]
 
-            
     #lowest class weight
     elif pBiasType == 'classWt':
         classWt = [np.sum(x) if len(x) > 0 else 0 for x in centWtClass]
         classFix = np.min([x for x in classWt if x>0])
         working = [1/x if x!=0 else 1/classFix for x in classWt]
+        
+    #lowest std
+    elif pBiasType == 'clusterStdLow':
+        clusterStd = [np.mean(np.mean(x)) if len(x) > 0 else 0 for x in centStdClass]
+        classFix = np.min([x for x in clusterStd if x>0])
+        working = [1/x if x!=0 else 1/classFix for x in clusterStd]
     
-    #uniform 
-    elif pBiasType == 'uniform':
-        working = [1 for x in range(nClassTotal)]
-        pMod = 5
+    #highest std
+    elif pBiasType == 'clusterStdHigh':
+        clusterStd = [np.mean(np.mean(x)) if len(x) > 0 else 0 for x in centStdClass]
+        classFix = np.min([x for x in clusterStd if x>0])
+        working = [x if x!=0 else classFix for x in clusterStd]    
+    
+    
+    # #uniform 
+    # elif pBiasType == 'uniform':
+    #     working = [1 for x in range(nClassTotal)]
+    #     pMod = 5
         
 
     #aff
@@ -416,3 +509,5 @@ def SVM_redistrict(xTrainBatch, yTrainBatch, xNew, yNew, xTestTot, yTestTot, pre
             if nActClass[iClass] != 0:   
                 rAccClass[iClass] = np.round(np.divide(nCorrClass[iClass], nActClass[iClass]), 3) 
     return rAcc, rAccClass, prevSplit, redClass
+
+
