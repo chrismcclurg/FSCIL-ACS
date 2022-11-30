@@ -1,0 +1,13 @@
+{"pFileNo" : 		0,
+"pMod" : 		3,   
+"pSeed" : 		0,
+"pDataName" : 		"grocery",
+"pLearner" : 		"CBCLPR",                   
+"pBias" : 		"clusterStdHigh",
+"pNetType" : 		"resnet34",            
+"pNetFit": 		"imagenet" ,           
+"pDistMetric" : 	"euclidean",           
+"pCentroidPred" : 	1,  
+"nClassTotal" : 	41,
+"pDistLim" : 		13,
+"pInc" : 		20}
