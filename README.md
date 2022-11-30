@@ -20,13 +20,10 @@ We used three standard datasets in our tests:
 + This work builds from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
 + This work uses YOLO v3 for object detection. The corresponding repo can be found [here](https://github.com/arunponnusamy/object-detection-opencv).
 
-**Usage.**  To run this code, you should use the following steps:
-1. Download the Malmo environment. 
-2. Download the image data and put it into ./utils/data
-3. Run the ./utils/get_features.py to extract features to ./utils/features
-4. Open a Minecraft client and run quick-test.py. *Her
-e, you can visualize the potential field as the agent goes through the environement.*
-5. Open many Minecraft clients and run main.py (with intended parameters) to run the full test. *Here, the results are written to ./results/[date]/*
+## If you consider citing us
+```
+This paper is currently in review. 
+```
 
 
 
