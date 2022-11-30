@@ -1,5 +1,7 @@
-# FSCIL-ACS 
-## Few-Shot Class-Incremental Learning with Active Class Selection
+# Few-Shot Class-Incremental Learning with Active Class Selection
+
+## Context
+This code supplements the work submitted at [redacted] in November 2023. 
 
 **Overview.** This code is for implementing CBCL with active class selection in the Minecraft (Malmo) environment. 
 
