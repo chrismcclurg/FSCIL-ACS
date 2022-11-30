@@ -21,7 +21,7 @@ We used three standard datasets in our tests. Download each one and put in the d
 + We build from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
 + We use [YOLO v3](https://github.com/arunponnusamy/object-detection-opencv) for object detection.
 + We use the [Project Malmo](https://github.com/microsoft/malmo) platform for Minecraft testing.
-+ We use pre-trained [weights](https://pjreddie.com/media/files/yolov3.weights) for the YOLO object detection. Download and put in the `./pepper/models/yolo/` folder.
++ We use pre-trained [weights](https://pjreddie.com/media/files/yolov3.weights) for the YOLO model. Download and put in the `./pepper/models/yolo/` folder.
 
 ## If you consider citing us
 ```
