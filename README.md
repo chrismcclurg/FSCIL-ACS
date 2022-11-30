@@ -1,4 +1,4 @@
-# Active Class Selection for Few-Shot Class-Incremental Learning
+# Active Class Selection for FSCIL
 Code for the paper: ***in review***
 
 ## Abstract
