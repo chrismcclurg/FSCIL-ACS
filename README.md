@@ -19,6 +19,7 @@ We used three standard datasets in our tests:
 ## Other reference
 + This work builds from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
 + This work uses YOLO v3 for object detection. The corresponding repo can be found [here](https://github.com/arunponnusamy/object-detection-opencv).
++ This work uses the [Project Malmo](https://github.com/microsoft/malmo) platform for Minecraft.
 
 ## If you consider citing us
 ```
