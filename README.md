@@ -11,9 +11,10 @@ We ran three experiments to test active class selection on agent/robot learning:
 + [Agent with no environment (batch setting)](https://github.com/chrismcclurg/FSCIL-ACS/tree/main/batch)
 
 ## Data 
-- The CIFAR-100 dataset can be found [here](https://www.cs.toronto.edu/~kriz/cifar.html).
-- The GROCERY STORE dataset can be found [here](https://github.com/marcusklasson/GroceryStoreDataset).
-- The CUB-200-2011 dataset can be found [here](http://www.vision.caltech.edu/datasets/cub_200_2011/).
+We used three standard datasets in our tests:
+- [CIFAR-100](https://www.cs.toronto.edu/~kriz/cifar.html), used in experiments 
+- [GROCERY STORE](https://github.com/marcusklasson/GroceryStoreDataset).
+- [CUB-200-2011](http://www.vision.caltech.edu/datasets/cub_200_2011/).
 
 **Usage.**  To run this code, you should use the following steps:
 1. Download the Malmo environment. 
