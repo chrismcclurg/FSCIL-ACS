@@ -1,4 +1,4 @@
-# Few-Shot Class-Incremental Learning with Active Class Selection
+# Active Class Selection for Few-Shot Class-Incremental Learning
 
 ## Context
 This code supplements the work submitted at [redacted] in November 2023. 
