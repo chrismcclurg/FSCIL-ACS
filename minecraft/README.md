@@ -4,7 +4,7 @@
 
 **Scenerio.** The robot passes through the Minecraft environment with partial observability. When a Minecraft item is within range, the item is identified. A potential field, created from the sum of unique observations, is used to navigate the robot from one desirable item to another. When the agent gets within close proximity to an item, the agent can 'collect' exemplars of this item. In reality, these exemplars are mapped to a real-world image dataset (CIFAR-100, GROCERY STORE, CUB-200), so the agent is collecting feature vectors of a certain class. The robot updates its understanding of the world (cluster space). The cluster space is used to inform the most desirable classes.
 
-![An overview of the model](https://github.com/chrismcclurg/minecraft-incremental-learning/blob/main/compModel.png?raw=true)
+![Minecraft flow chart](https://github.com/chrismcclurg/FSCIL-ACS/blob/main/img/mincecraft_flow.png)
 
 **Usage.**  To run this code, you should use the following steps:
 1. Download the Malmo environment. 
