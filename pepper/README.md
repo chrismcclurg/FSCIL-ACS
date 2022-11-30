@@ -4,7 +4,7 @@ Pepper is given sixty iterations to search the environment for new visual exampl
 <img src="https://github.com/chrismcclurg/FSCIL-ACS/blob/main/img/pepper_flowchart.png"> 
 
 ## Data 
-We used one standard dataset in this test. Download the tar.gz file and put in the `./pepper/utils/data/` folder.
+We used one standard dataset in this test. Download and put in the `./pepper/utils/data/` folder.
 + [GROCERY STORE](https://github.com/marcusklasson/GroceryStoreDataset)
 
 ## Other reference
