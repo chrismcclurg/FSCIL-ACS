@@ -12,13 +12,13 @@ We ran three experiments to test active class selection on agent/robot learning:
 
 ## Data 
 We used three standard datasets in our tests:
-+ [CIFAR-100](https://www.cs.toronto.edu/~kriz/cifar.html).
-+ [GROCERY STORE](https://github.com/marcusklasson/GroceryStoreDataset).
-+ [CUB-200-2011](http://www.vision.caltech.edu/datasets/cub_200_2011/).
++ [CIFAR-100](https://www.cs.toronto.edu/~kriz/cifar.html)
++ [GROCERY STORE](https://github.com/marcusklasson/GroceryStoreDataset)
++ [CUB-200-2011](http://www.vision.caltech.edu/datasets/cub_200_2011/)
 
 ## Other reference
 + This work builds from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
-+ This work also incoporates YOLO object detection 
++ This work uses YOLO v3 for object detection. The corresponding repo can be found [here](https://github.com/arunponnusamy/object-detection-opencv).
 
 **Usage.**  To run this code, you should use the following steps:
 1. Download the Malmo environment. 
