@@ -11,15 +11,17 @@ We ran three experiments to test active class selection on agent/robot learning:
 + [Agent with no environment (batch setting)](https://github.com/chrismcclurg/FSCIL-ACS/tree/main/batch)
 
 ## Data 
-We used three standard datasets in our tests:
+We used three standard datasets in our tests. Download each one and put in the desired `./*/utils/data/` folder.
 + [CIFAR-100](https://www.cs.toronto.edu/~kriz/cifar.html)
 + [GROCERY STORE](https://github.com/marcusklasson/GroceryStoreDataset)
 + [CUB-200-2011](http://www.vision.caltech.edu/datasets/cub_200_2011/)
+
 
 ## Other reference
 + We build from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
 + We use [YOLO v3](https://github.com/arunponnusamy/object-detection-opencv) for object detection.
 + We use the [Project Malmo](https://github.com/microsoft/malmo) platform for Minecraft testing.
++ We use pre-trained [weights](https://pjreddie.com/media/files/yolov3.weights) for the YOLO object detection. Download and put in the `./pepper/models/yolo/` folder.
 
 ## If you consider citing us
 ```
