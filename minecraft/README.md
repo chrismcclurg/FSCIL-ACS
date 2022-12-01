@@ -20,7 +20,8 @@ In an iteration, a Minecraft agent has two minutes to search the environment for
 
 ## Reference
 + We build from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
-+ We use the 
++ We use the [Project Malmo](https://github.com/microsoft/malmo) platform for Minecraft testing.
+
 ## If you consider citing us
 ```
 This paper is currently in review. 
