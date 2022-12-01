@@ -4,16 +4,14 @@ In an iteration, a Minecraft agent has two minutes to search the environment for
 <img src="https://github.com/chrismcclurg/FSCIL-ACS/blob/main/img/minecraft_flowchart.png"> 
 
 ## Preparation
-1. Download the [GROCERY STORE](https://github.com/marcusklasson/GroceryStoreDataset) and [GROCERY STORE](https://github.com/marcusklasson/GroceryStoreDataset)dataset and put in the `./pepper/utils/data/` folder.
-2. Run **./pepper/utils/get_features.py** to extract features into the `./pepper/utils/features/` folder.
-3. Change parameters (classifier, active class selection type, etc.) in **./pepper/utils/params.txt** for your test.
-4. Download the pre-trained [weights](https://pjreddie.com/media/files/yolov3.weights) for YOLO and put in the `./pepper/models/yolo/` folder.
+1. Download the [GROCERY STORE](https://github.com/marcusklasson/GroceryStoreDataset) and [CIFAR-100](https://www.cs.toronto.edu/~kriz/cifar.html) datasets and put in the `./minecraft/utils/data/` folder.
+2. Run **./minecraft/utils/get_features.py** to extract features into the `./minecraft/utils/features/` folder.
+3. Download [Project Malmo](https://github.com/microsoft/malmo). See note below.
 
 ## Notes
-+ This test could easily be extended to other datsets. The four steps above would be the same; however, data-specific files need to be added to the `./pepper/utils/` folder (as currently done) and appropriate referencing in the code. 
-+ The IP address in **./pepper/models/pepper.py** needs modified to be your local network, for which Pepper is also connected.
-+ The main script requires [Python 2.7-32 bit](https://www.python.org/downloads/) (for Windows users). 
-+ To deal with the memory limit (2GB) of Windows 32-bit applications, **./pepper/models/pepper.py** spawns new subprocesses for YOLO and CBCL models in a virtual environment with Python 3.8, which is designated py38.
++ Make sure that the version of Project Malmo corresponds to the version of Python you are using. We found Python 3.6 to be the easiest to use.   
++ This test could  
++ There are two ways to run the simulation. The **./minecraft/quick-test.py** runs a single process, plotting in real time the potential field for navigation. The **./minecraft/main.py** runs the full test of specified test conditions, for which you can specify the number of processors you would like to use.
 
 ## Reference
 + We build from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
