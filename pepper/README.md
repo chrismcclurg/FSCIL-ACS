@@ -5,7 +5,7 @@ Pepper is given sixty iterations to search the environment for new visual exampl
 
 ## Preparation
 1. Download the [GROCERY STORE](https://github.com/marcusklasson/GroceryStoreDataset) dataset and put in the `./pepper/utils/data/` folder.
-2. Run `./pepper/utils/get_features.py` to extract features into the `./pepper/utils/features/` folder.
+2. Run *./pepper/utils/get_features.py* to extract features into the `./pepper/utils/features/` folder.
 3. Download the pre-trained [weights](https://pjreddie.com/media/files/yolov3.weights) for YOLO and put in the `./pepper/models/yolo/` folder.
 
 ## Reference
