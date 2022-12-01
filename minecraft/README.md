@@ -13,10 +13,10 @@ In an iteration, a Minecraft agent has two minutes to search the environment for
 + This test could easily be extended to other datsets. The steps above would be the same; however, data-specific files need to be added to the `./minecraft/utils/` folder (as currently done). Specific adjustments include: 
   + Tabulating the fine and coarse labels in **./minecraft/utils/env/[data]-labels.xlsx**
   + Running a script **./minecraft/utils/get_env-[data].py** to get item placement as **./minecraft/utils/env/[data]-mapping.xlsx**
-  c. Searching for any data-specific references in the current code. There should not be many.
+  + Searching for any data-specific references in the current code. There should not be many.
 + There are two ways to run the simulation. 
-1. The **./minecraft/quick-test.py** runs a single process, plotting in real time the potential field for navigation. 
-2. The **./minecraft/main.py** runs the full test of specified test conditions, for which you can specify the number of processors you would like to use.
+  + The **./minecraft/quick-test.py** runs a single process, plotting in real time the potential field for navigation. 
+  + The **./minecraft/main.py** runs the full test of specified test conditions, for which you can specify the number of processors you would like to use.
 
 ## Reference
 + We build from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
