@@ -25,6 +25,7 @@ In an iteration, a Minecraft agent has two minutes to search the environment for
   + The **./minecraft/main.py** runs the full test of specified test conditions, for which you can specify the number of processors you would like to use.
   
 ## Results
+Our results for FSCIL-ACS in Minecraft are shown below. Active class selection and classifier (CBCL-PR or SVM) are varied.
 <p align="center">
   <img src="https://github.com/chrismcclurg/FSCIL-ACS/blob/main/img/minecraft_results.png" width=80% height=80%>
 </p>
