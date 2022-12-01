@@ -10,10 +10,10 @@ Pepper is given sixty iterations to search the environment for new visual exampl
 4. Download the pre-trained [weights](https://pjreddie.com/media/files/yolov3.weights) for YOLO and put in the `./pepper/models/yolo/` folder.
 
 ## Notes
-1. This test could easily be extended to other datsets, as the four steps above would be the same. However, data-specific files need to be added to the `./pepper/utils/` folder (as currently done with the single dataset) and appropriate referencing in the code. 
-2. Make sure that the IP address in **./pepper/models/pepper.py** is correct. This should be your local network, for which Pepper is also connected.
-3. The main script needs to run in [Python 2.7-32 bit](https://www.python.org/downloads/) (for Windows users). 
-4. To deal with the memory limit of Windows 32-bit applications (2GB), **./pepper/models/pepper.py** spawns new subprocesses to run **YOLO** and **CBCL** in a virtual environment with [Python 3.8-64 bit](https://www.python.org/downloads/), which is designated `py38`.
++ This test could easily be extended to **other datsets**. The four steps above would be the same; however, data-specific files need to be added to the `./pepper/utils/` folder (as currently done) and appropriate referencing in the code. 
++ The IP address in **./pepper/models/pepper.py** needs modified to be your local network, for which Pepper is also connected.
++ The main script requires [Python 2.7-32 bit](https://www.python.org/downloads/) (for Windows users). 
++ To deal with the memory limit (2GB) of Windows 32-bit applications, **pepper.py** spawns new subprocesses to run **YOLO** and **CBCL** models in a virtual environment with Python 3.8, which is designated py38.
 
 ## Reference
 + We build from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
