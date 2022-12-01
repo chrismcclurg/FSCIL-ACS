@@ -11,8 +11,8 @@ In an iteration, a Minecraft agent has two minutes to search the environment for
 ## Notes
 + Make sure that the version of Project Malmo corresponds to the version of Python. We found Python 3.6 to be the easiest to use.   
 + This test could easily be extended to other datsets. The steps above would be the same; however, data-specific files need to be added to the `./minecraft/utils/` folder (as currently done). Specific adjustments include: 
-  a. Tabulating the fine and coarse labels in **./minecraft/utils/env/[data]-labels.xlsx**
-  b. Running a script **./minecraft/utils/get_env-[data].py** to get item placement as **./minecraft/utils/env/[data]-mapping.xlsx**
+  + Tabulating the fine and coarse labels in **./minecraft/utils/env/[data]-labels.xlsx**
+  + Running a script **./minecraft/utils/get_env-[data].py** to get item placement as **./minecraft/utils/env/[data]-mapping.xlsx**
   c. Searching for any data-specific references in the current code. There should not be many.
 + There are two ways to run the simulation. 
 1. The **./minecraft/quick-test.py** runs a single process, plotting in real time the potential field for navigation. 
