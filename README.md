@@ -7,10 +7,10 @@
 
 
 ## Experiments
-We ran three experiments to test active class selection on agent/robot learning:
+We ran two experiments to test active class selection on agent/robot learning:
 + [Agent in Minecraft simulation](https://github.com/chrismcclurg/FSCIL-ACS/tree/main/minecraft)
 + [Robot in an indoor environment](https://github.com/chrismcclurg/FSCIL-ACS/tree/main/pepper)
-+ [Agent with no environment (batch setting)](https://github.com/chrismcclurg/FSCIL-ACS/tree/main/batch)
+<!--- + [Agent with no environment (batch setting)](https://github.com/chrismcclurg/FSCIL-ACS/tree/main/batch) --->
 
 ## Data 
 We used three standard datasets in our tests. Download each one and put in the desired `./*/utils/data/` folder.
