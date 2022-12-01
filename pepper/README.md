@@ -3,14 +3,14 @@ Pepper is given sixty iterations to search the environment for new visual exampl
 
 <img src="https://github.com/chrismcclurg/FSCIL-ACS/blob/main/img/pepper_flowchart.png"> 
 
-## Data 
-We used one standard dataset in this test. Download and put in the `./pepper/utils/data/` folder.
-+ [GROCERY STORE](https://github.com/marcusklasson/GroceryStoreDataset)
+## Preparation
+1. Download the [GROCERY STORE](https://github.com/marcusklasson/GroceryStoreDataset) dataset and put in the `./pepper/utils/data/` folder.
+2. Run the `./pepper/utils/get_features.py` script to extract features into the `./pepper/utils/features/` folder.
+3. Download the pre-trained [weights](https://pjreddie.com/media/files/yolov3.weights) for YOLO and put in the `./pepper/models/yolo/` folder.
 
-## Other reference
+## Reference
 + We build from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
 + We use [YOLO v3](https://github.com/arunponnusamy/object-detection-opencv) for object detection.
-+ We use pre-trained [weights](https://pjreddie.com/media/files/yolov3.weights) for the YOLO model. Download and put in the `./pepper/models/yolo/` folder.
 
 ## If you consider citing us
 ```
