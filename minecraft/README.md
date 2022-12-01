@@ -23,6 +23,11 @@ In an iteration, a Minecraft agent has two minutes to search the environment for
 + There are two ways to run the simulation. 
   + The **./minecraft/quick-test.py** runs a single process, plotting in real time the potential field for navigation. 
   + The **./minecraft/main.py** runs the full test of specified test conditions, for which you can specify the number of processors you would like to use.
+  
+## Results
+<p align="center">
+  <img src="https://github.com/chrismcclurg/FSCIL-ACS/blob/main/img/minecraft_results.png" width=80% height=80%>
+</p>
 
 ## Reference
 + We build from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
