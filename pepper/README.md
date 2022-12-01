@@ -17,6 +17,12 @@ Pepper is given sixty iterations to search the environment for new visual exampl
 + The main script requires [Python 2.7-32 bit](https://www.python.org/downloads/) (for Windows users). 
 + To deal with the memory limit (2GB) of Windows 32-bit applications, **./pepper/models/pepper.py** spawns new subprocesses for YOLO and CBCL models in a virtual environment with Python 3.8, which is designated py38.
 
+## Results
+Our results for FSCIL-ACS with Pepper are shown below. Active class selection and classifier (CBCL-PR or SVM) are varied.
+<p align="center">
+  <img src="https://github.com/chrismcclurg/FSCIL-ACS/blob/main/img/pepper_results.png"> 
+</p>
+
 ## Reference
 + We build from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL).
 + We use [YOLO v3](https://github.com/arunponnusamy/object-detection-opencv) for object detection.
