@@ -18,7 +18,7 @@ curr = curr.replace('\\', '/')
 
 #inputs
 CONFIG      = './models/yolo/yoloV3.cfg'
-WEIGHTS     = './models/yolo/coco.weights'
+WEIGHTS     = './models/yolo/yolov3.weights'
 CLASSES     = './models/yolo/coco.txt'
 INPUT_PATH  = curr + '/output/temp_count/images/0_raw/'
 OUTPUT_PATH = curr + '/output/temp_count/images/1_cropped/'
