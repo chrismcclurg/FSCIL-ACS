@@ -1,10 +1,9 @@
 # Active Class Selection for FSCIL
-<p align="justify">Previous work has shown that data acquisition is made more efficient with active class selection (ACS), where a learner may actively request more training data about a specific class. Additionally, processing and memory efficiency are important considerations for few-shot class-incremental learning (FSCIL), where a learner receives limited training data in increments, rather than all at once. Motivated to create robots that learn to recognize unknown classes of objects in unknown environments, we propose a solution that combines the efficiency of data acquisition in ACS with the computational and memory efficiency of FSCIL. As an extension of Centroid-Based Concept Learning with Pseudo-Rehearsal (CBCL-PR), our algorithm uses cluster statistics to actively select new classes of data to learn. We show that not only does CBCL-PR show state-of-the-art performance in a pure few-shot class-incremental learning setting, but also that cluster-based active class selection improves performance over previous methods in two environments: Minecraft simulation and with a real robot.</p>
+<p align="justify">For real-world applications, robots will need to continually learn in their environments through limited interactions with their users. Toward this, previous works in few-shot class incremental learning (FSCIL) and active class selection (ACS) have achieved promising results but were tested in constrained setups. Therefore, in this paper, we combine ideas from FSCIL and ACS to develop a novel framework that can allow an autonomous agent to continually learn new objects by asking its users to label only a few of the most informative objects in the environment. To this end, we build on a state-of-the-art (SOTA) FSCIL model and extend it with techniques from ACS literature. We term this model Few-shot Incremental Active class SeleCtiOn (FIASco). We further integrate a potential field-based navigation technique with our model to develop a complete framework that can allow an agent to process and reason on its sensory data through the FIASco model, navigate towards the most informative object in the environment, gather data about the object through its sensors and incrementally update the FIASco model. Experimental results on a simulated agent and a real robot show the significance of our approach for long-term real-world robotics applications.</p>
 
 <p align="center">
   <img src="https://github.com/chrismcclurg/FSCIL-ACS/blob/main/img/malmo_iso.jpg" width=48% height=48%> <img src="https://github.com/chrismcclurg/FSCIL-ACS/blob/main/img/pepper_iso.jpg" width=48% height=48%>
 </p>
-
 
 ## Experiments
 We ran two experiments to test active class selection on agent/robot learning:
@@ -19,7 +18,7 @@ We used three standard datasets in our tests. Download each one and put in the d
 + [CUB-200-2011](http://www.vision.caltech.edu/datasets/cub_200_2011/)
 
 
-## Other reference
+## Other
 + We build from CBCL-PR, an extension of [CBCL](https://github.com/aliayub7/CBCL), a classifier for FSCIL.
 + We use [YOLO v3](https://github.com/arunponnusamy/object-detection-opencv) for object detection.
 + We use the [Project Malmo](https://github.com/microsoft/malmo) platform for Minecraft testing.
@@ -27,7 +26,11 @@ We used three standard datasets in our tests. Download each one and put in the d
 
 ## If you consider citing us
 ```
-This paper is currently in review. 
+@inproceedings{mcclurg2023acsfscil,
+  title={Active Class Selection for Few-Shot Class-Incremental Learning},
+  author={McClurg, Christopher and Ayub, Ali and Tyagi, Harsh and Rajtmajer, Sarah M. and Wagner, Alan R.},
+  booktitle={Conference on Lifelong Learning Agents},
+  year={2023}}
 ```
 
 
