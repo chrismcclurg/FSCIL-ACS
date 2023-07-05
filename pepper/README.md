@@ -23,5 +23,9 @@ Pepper is given sixty iterations to search the environment for new visual exampl
 
 ## If you consider citing us
 ```
-This paper is currently in review. 
+@inproceedings{mcclurg2023acsfscil,
+  title={Active Class Selection for Few-Shot Class-Incremental Learning},
+  author={McClurg, Christopher and Ayub, Ali and Tyagi, Harsh and Rajtmajer, Sarah M. and Wagner, Alan R.},
+  booktitle={Conference on Lifelong Learning Agents},
+  year={2023}}
 ```
